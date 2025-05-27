@@ -1,6 +1,6 @@
 // v2.3.0에 대한 스크립트 어셋 변경됨 자세한 정보는
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 참조
-function gpu_pathfind(_x,_y){
+function gpu_pathfind(_i,_ii){
 	if(!surface_exists(global.gpu_pathfind_surf)){
 		global.gpu_pathfind_surf = surface_create(array_length(global.grid),array_length(global.grid[0]));
 	}
@@ -25,7 +25,7 @@ function gpu_pathfind(_x,_y){
 	surface_set_target(global.gpu_pathfind_surf);
 	draw_clear_alpha(c_black,0);
 	
-	draw_sprite(spr_white_dot,0,_x,_y);
+	draw_sprite(spr_white_dot,0,_i,_ii);
 	
 	gpu_set_blendenable(false);
 	for(var i = 0; i < 100; i++){
