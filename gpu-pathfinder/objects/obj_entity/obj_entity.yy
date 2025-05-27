@@ -1,18 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_block",
+  "%Name":"obj_entity",
   "eventList":[],
   "managed":true,
-  "name":"obj_block",
+  "name":"obj_entity",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
     "path":"folders/Objects.yy",
   },
-  "parentObjectId":{
-    "name":"obj_entity",
-    "path":"objects/obj_entity/obj_entity.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -30,10 +27,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_stone",
-    "path":"sprites/spr_stone/spr_stone.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

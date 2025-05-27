@@ -9,7 +9,7 @@ function gpu_pathfind(_i,_ii){
 	
 	surface_set_target(_surf_block);
 	draw_clear_alpha(c_black,0);
-	with(obj_block){
+	with(obj_entity){
 		draw_sprite(spr_white_dot,0,xx,yy);
 	}
 	
