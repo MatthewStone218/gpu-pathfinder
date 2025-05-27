@@ -26,16 +26,19 @@ function gpu_pathfind(_x,_y){
 	draw_clear_alpha(c_black,0);
 	
 	draw_sprite(spr_white_dot,0,_x,_y);
-			
+	
+	gpu_set_blendenable(false);
 	for(var i = 0; i < 100; i++){
 		surface_copy(_surf,0,0,global.gpu_pathfind_surf);
+		var _texture = surface_get_texture(_surf);
+		
 		shader_set(shd_gpu_pathfind);
-		shader_set_uniform_f(shader_get_uniform(shd_gpu_pathfind,"u_texel"),1/array_length(global.grid),1/array_length(global.grid[0]));
-		texture_set_stage(shader_get_sampler_index(shd_gpu_pathfind,"u_texture"),surface_get_texture(_surf));
+		shader_set_uniform_f(shader_get_uniform(shd_gpu_pathfind,"u_texel"),texture_get_texel_width(_texture),texture_get_texel_height(_texture));
 		texture_set_stage(shader_get_sampler_index(shd_gpu_pathfind,"u_texture_obstacle"),surface_get_texture(_surf_block));
 		draw_surface(_surf,0,0);
 		shader_reset();
 	}
+	gpu_set_blendenable(true);
 	
 	surface_reset_target();
 	

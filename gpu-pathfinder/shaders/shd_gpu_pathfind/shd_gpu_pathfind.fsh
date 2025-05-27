@@ -4,7 +4,6 @@
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 uniform vec2 u_texel;
-uniform sampler2D u_textrue;
 uniform sampler2D u_texture_obstacle;
 
 void main()
@@ -16,10 +15,10 @@ void main()
 	} else {
 	    vec4 baseColor = texture2D( gm_BaseTexture, v_vTexcoord );
 	
-	    vec4 upColor = texture2D( u_textrue, vec2(v_vTexcoord.x, v_vTexcoord.y - u_texel.y) );
-	    vec4 downColor = texture2D( u_textrue, vec2(v_vTexcoord.x, v_vTexcoord.y + u_texel.y) );
-	    vec4 leftColor = texture2D( u_textrue, vec2(v_vTexcoord.x - u_texel.x, v_vTexcoord.y) );
-	    vec4 rightColor = texture2D( u_textrue, vec2(v_vTexcoord.x + u_texel.y, v_vTexcoord.y) );
+	    vec4 upColor = texture2D( gm_BaseTexture, vec2(v_vTexcoord.x, v_vTexcoord.y - u_texel.y) );
+	    vec4 downColor = texture2D( gm_BaseTexture, vec2(v_vTexcoord.x, v_vTexcoord.y + u_texel.y) );
+	    vec4 leftColor = texture2D( gm_BaseTexture, vec2(v_vTexcoord.x - u_texel.x, v_vTexcoord.y) );
+	    vec4 rightColor = texture2D( gm_BaseTexture, vec2(v_vTexcoord.x + u_texel.y, v_vTexcoord.y) );
 	
 		gl_FragColor = baseColor;
 	
