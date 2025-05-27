@@ -34,12 +34,21 @@
   },
   "name":"gpu-pathfinder",
   "resources":[
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"ft_text","path":"fonts/ft_text/ft_text.yy",},},
+    {"id":{"name":"obj_block","path":"objects/obj_block/obj_block.yy",},},
+    {"id":{"name":"obj_human","path":"objects/obj_human/obj_human.yy",},},
+    {"id":{"name":"obj_test_system","path":"objects/obj_test_system/obj_test_system.yy",},},
+    {"id":{"name":"rm_test","path":"rooms/rm_test/rm_test.yy",},},
+    {"id":{"name":"scr_test","path":"scripts/scr_test/scr_test.yy",},},
+    {"id":{"name":"spr_dirt_1","path":"sprites/spr_dirt_1/spr_dirt_1.yy",},},
+    {"id":{"name":"spr_dirt","path":"sprites/spr_dirt/spr_dirt.yy",},},
+    {"id":{"name":"spr_human","path":"sprites/spr_human/spr_human.yy",},},
+    {"id":{"name":"spr_stone","path":"sprites/spr_stone/spr_stone.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"rm_test","path":"rooms/rm_test/rm_test.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
