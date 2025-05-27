@@ -13,9 +13,9 @@ function create_random_map(){
 				global.grid[i][ii] = _inst;
 				_inst.xx = i;
 				_inst.yy = ii;
-			} else if(random(100) < 0){
-				var _x = 16*(i mod _w) - 16*(ii/_h);
-				var _y = 8*(i mod _w) + 8*(ii/_h);
+			} else if(random(100) < 5){
+				var _x = 16*(i mod _w) - 16*ii;
+				var _y = 8*(i mod _w) + 8*ii;
 				var _inst = instance_create_depth(800+_x,_y,-_y,obj_human);
 				global.grid[i][ii] = _inst;
 				_inst.xx = i;

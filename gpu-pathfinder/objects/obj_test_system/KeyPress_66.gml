@@ -1,6 +1,3 @@
 /// @description 여기에 설명 삽입
 // 이 에디터에 코드를 작성할 수 있습니다
-global.grid = [[]];
-fpss = fps_real;
-alarm[0] = 20;
-global.gpu_pathfind_surf = -1;
+gpu_pathfind(mouse_x,mouse_y);
