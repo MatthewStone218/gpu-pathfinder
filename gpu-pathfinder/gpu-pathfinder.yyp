@@ -46,6 +46,7 @@
     {"id":{"name":"shd_gpu_pathfind","path":"shaders/shd_gpu_pathfind/shd_gpu_pathfind.yy",},},
     {"id":{"name":"shd_test","path":"shaders/shd_test/shd_test.yy",},},
     {"id":{"name":"spr_black_dot","path":"sprites/spr_black_dot/spr_black_dot.yy",},},
+    {"id":{"name":"spr_cursor","path":"sprites/spr_cursor/spr_cursor.yy",},},
     {"id":{"name":"spr_dirt_1","path":"sprites/spr_dirt_1/spr_dirt_1.yy",},},
     {"id":{"name":"spr_dirt","path":"sprites/spr_dirt/spr_dirt.yy",},},
     {"id":{"name":"spr_human","path":"sprites/spr_human/spr_human.yy",},},
