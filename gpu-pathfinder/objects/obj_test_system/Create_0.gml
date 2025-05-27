@@ -3,7 +3,6 @@
 #macro GRID_W 200
 #macro GRID_H 200
 
-global.grid = [[]];
 fpss = fps_real;
 alarm[0] = 20;
 global.gpu_pathfind_surf = -1;
@@ -12,4 +11,4 @@ create_random_map();
 mouse_x_prev = mouse_x;
 mouse_y_prev = mouse_y;
 
-global.bfs_dir = -1;
+global.gpu_pathfind_buff = -1;

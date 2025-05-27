@@ -5,6 +5,7 @@ if(surface_exists(global.gpu_pathfind_surf)){
 	shader_set(shd_test);
 	draw_surface_ext(global.gpu_pathfind_surf,0,0,3,3,0,c_white,1);
 	shader_reset();
+	surface_free(global.gpu_pathfind_surf);
 }
 
 draw_set_halign(fa_left);

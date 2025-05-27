@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_gpu_pathfind",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"GPU Pathfinder",
+    "path":"folders/GPU Pathfinder.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

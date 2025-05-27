@@ -1,20 +1,15 @@
 // v2.3.0에 대한 스크립트 어셋 변경됨 자세한 정보는
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 참조
-function gpu_pathfind(_i,_ii,range = 100){
-	var _width = array_length(global.grid);
-	var _height = array_length(global.grid[0]);
-
-	if(!surface_exists(global.gpu_pathfind_surf)){
-		global.gpu_pathfind_surf = surface_create(_width,_height);
-	}
-	var _surf = surface_create(_width,_height);
-	var _surf_block = surface_create(_width,_height);
+function gpu_pathfind(_i,_ii,width,height,func_draw,range = 100,test = false){
+	
+	var gpu_pathfind_surf = surface_create(width,height);
+	var _surf = surface_create(width,height);
+	var _surf_block = surface_create(width,height);
 	
 	surface_set_target(_surf_block);
 	draw_clear_alpha(c_black,0);
-	with(obj_entity){
-		draw_sprite(spr_white_dot,0,xx,yy);
-	}
+	
+	func_draw();
 	
 	surface_reset_target();
 	
@@ -25,14 +20,14 @@ function gpu_pathfind(_i,_ii,range = 100){
 	shader_reset();
 	surface_reset_target();
 	
-	surface_set_target(global.gpu_pathfind_surf);
+	surface_set_target(gpu_pathfind_surf);
 	draw_clear_alpha(c_black,0);
 	
 	draw_sprite(spr_white_dot,0,_i,_ii);
 	
 	gpu_set_blendenable(false);
 	for(var i = 0; i < range; i++){
-		surface_copy(_surf,0,0,global.gpu_pathfind_surf);
+		surface_copy(_surf,0,0,gpu_pathfind_surf);
 		var _texture = surface_get_texture(_surf);
 		
 		shader_set(shd_gpu_pathfind);
@@ -49,12 +44,28 @@ function gpu_pathfind(_i,_ii,range = 100){
 	
 	surface_free(_surf);
 	surface_free(_surf_block);
-	
-	if(buffer_exists(global.bfs_dir)){
-		buffer_delete(global.bfs_dir);
+	if(test){
+		global.gpu_pathfind_surf = gpu_pathfind_surf;
+	} else {
+		surface_free(gpu_pathfind_surf);
 	}
 	
-	var _buff = buffer_create(_width*_height*4,buffer_fast,1);
-	buffer_get_surface(_buff,global.gpu_pathfind_surf,0);
+	var _buff = buffer_create(width*height*4,buffer_fast,1);
+	buffer_get_surface(_buff,gpu_pathfind_surf,0);
 	return _buff;
+}
+
+function gpu_pathfind_get_buffer_dir(buff,xx,yy,width){
+	if(buffer_exists(buff)){
+		var r = buffer_peek(buff, (yy * width + xx) * 4, buffer_u8);
+		var g = buffer_peek(buff, (yy * width + xx) * 4 + 1, buffer_u8);
+		var b = buffer_peek(buff, (yy * width + xx) * 4 + 2, buffer_u8);
+		var a = buffer_peek(buff, (yy * width + xx) * 4 + 3, buffer_u8);
+
+		var _x_dir = (a-b)/255;
+		var _y_dir = (g-r)/255;
+		
+		return [_x_dir,_y_dir];
+	}
+	return [0,0];
 }
