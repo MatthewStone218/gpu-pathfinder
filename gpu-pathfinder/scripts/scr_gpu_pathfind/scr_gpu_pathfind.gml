@@ -1,11 +1,14 @@
 // v2.3.0에 대한 스크립트 어셋 변경됨 자세한 정보는
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 참조
 function gpu_pathfind(_i,_ii){
+	var _width = array_length(global.grid);
+	var _height = array_length(global.grid[0]);
+	
 	if(!surface_exists(global.gpu_pathfind_surf)){
-		global.gpu_pathfind_surf = surface_create(array_length(global.grid),array_length(global.grid[0]));
+		global.gpu_pathfind_surf = surface_create(_width,_height);
 	}
-	var _surf = surface_create(array_length(global.grid),array_length(global.grid[0]));
-	var _surf_block = surface_create(array_length(global.grid),array_length(global.grid[0]));
+	var _surf = surface_create(_width,_height);
+	var _surf_block = surface_create(_width,_height);
 	
 	surface_set_target(_surf_block);
 	draw_clear_alpha(c_black,0);
@@ -44,4 +47,19 @@ function gpu_pathfind(_i,_ii){
 	
 	surface_free(_surf);
 	surface_free(_surf_block);
+	
+	var _buff = buffer_create(_width*4+_height*4,buffer_fast,1);
+	buffer_get_surface(_buff,global.gpu_pathfind_surf,0);
+	
+	var _arr = [[]];
+	
+	for(var i = 0; i < _width*4+_height*4; i++){
+		var _a = i mod _width;
+		var _b = i div _width;
+		_arr[_a][_b] = buffer_peek(_buff, i, buffer_u8);
+	}
+	
+	buffer_delete(_buff);
+	
+	return _arr;
 }
