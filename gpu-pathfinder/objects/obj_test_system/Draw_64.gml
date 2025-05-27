@@ -11,5 +11,4 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(ft_text);
 draw_text(0,0,$"fps: {fpss}");
-
 draw_sprite_ext(spr_cursor,0,device_mouse_x_to_gui(0),device_mouse_y_to_gui(0),1,1,0,c_white,1);
