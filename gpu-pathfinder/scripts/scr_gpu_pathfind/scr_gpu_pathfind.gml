@@ -73,7 +73,7 @@ function gpu_pathfind_get_buffer_dir(buff,xx,yy,width){
 	return [0,0];
 }
 
-function gpu_pathfind_z(_i,_ii,width,height,func_draw,range = 100,test = false){
+function gpu_pathfind_z(_i,_ii,_iii,width,height,func_draw,range = 100,test = false){
 	
 	var gpu_pathfind_surf = surface_create(width,height,surface_rgba32float);
 	var _surf = surface_create(width,height,surface_rgba32float);
@@ -96,7 +96,10 @@ function gpu_pathfind_z(_i,_ii,width,height,func_draw,range = 100,test = false){
 	surface_set_target(gpu_pathfind_surf);
 	draw_clear_alpha(c_black,0);
 	
+	shader_set(shd_gpu_pathfind_f32);
+	shader_set_uniform_f(shader_get_uniform(shd_gpu_pathfind_f32,"u_f32"),_iii/31);
 	draw_sprite(spr_white_dot,0,_i,_ii);
+	shader_reset();
 	
 	shader_set(shd_gpu_pathfind_z);
 	
@@ -114,7 +117,10 @@ function gpu_pathfind_z(_i,_ii,width,height,func_draw,range = 100,test = false){
 	shader_reset();
 	gpu_set_blendenable(true);
 	
+	shader_set(shd_gpu_pathfind_f32);
+	shader_set_uniform_f(shader_get_uniform(shd_gpu_pathfind_f32,"u_f32"),_iii/31);
 	draw_sprite(spr_white_dot,0,_i,_ii);
+	shader_reset();
 	
 	surface_reset_target();
 	

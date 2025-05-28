@@ -25,9 +25,9 @@ void main()
 		vec4 leftColor = texture2D( gm_BaseTexture, vec2(v_vTexcoord.x - u_texel.x, v_vTexcoord.y) );
 		vec4 rightColor = texture2D( gm_BaseTexture, vec2(v_vTexcoord.x + u_texel.x, v_vTexcoord.y) );
 		
-		gl_FragColor.r = pow(2.0,abs(height_center-height_up))*clamp(upColor.r+upColor.g+upColor.b+upColor.a,0.0,1.0)/4294967295.0;
-		gl_FragColor.g = pow(2.0,abs(height_center-height_down))*clamp(upColor.r+upColor.g+upColor.b+upColor.a,0.0,1.0)/4294967295.0;
-		gl_FragColor.b = pow(2.0,abs(height_center-height_left))*clamp(upColor.r+upColor.g+upColor.b+upColor.a,0.0,1.0)/4294967295.0;
-		gl_FragColor.a = pow(2.0,abs(height_center-height_right))*clamp(upColor.r+upColor.g+upColor.b+upColor.a,0.0,1.0)/4294967295.0;
+		gl_FragColor.r = baseColor.r + pow(2.0,abs(height_center-height_up))*clamp(upColor.r+upColor.g+upColor.b+upColor.a,0.0,1.0);
+		gl_FragColor.g = baseColor.g + pow(2.0,abs(height_center-height_down))*clamp(downColor.r+downColor.g+downColor.b+downColor.a,0.0,1.0);
+		gl_FragColor.b = baseColor.b + pow(2.0,abs(height_center-height_left))*clamp(leftColor.r+leftColor.g+leftColor.b+leftColor.a,0.0,1.0);
+		gl_FragColor.a = baseColor.a + pow(2.0,abs(height_center-height_right))*clamp(rightColor.r+rightColor.g+rightColor.b+rightColor.a,0.0,1.0);
 	}
 }

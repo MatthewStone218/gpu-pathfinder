@@ -1,7 +1,7 @@
 /// @description 여기에 설명 삽입
 // 이 에디터에 코드를 작성할 수 있습니다
-#macro GRID_W 200
-#macro GRID_H 200
+#macro GRID_W 50
+#macro GRID_H 50
 
 fpss = fps_real;
 alarm[0] = 20;

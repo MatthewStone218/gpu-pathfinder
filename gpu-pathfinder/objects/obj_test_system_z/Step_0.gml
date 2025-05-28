@@ -8,19 +8,19 @@ var _i = ((_x-800)/16 + _y/8) / 2;
 var _ii = (_y/8 - (_x-800)/16) / 2;
 
 var _func = function(){
-	shader_set(shd_gpu_pathfind_f32);
 	with(obj_block){
-		shader_set_uniform_f(shd_gpu_pathfind_f32,z/31);
-		draw_sprite(spr_white_dot,0,xx,yy);
+		shader_set_uniform_f(shader_get_uniform(shd_gpu_pathfind_f32,"u_f32"),z/31);
+		draw_sprite_ext(spr_white_dot,0,xx,yy,);
 	}
-	shader_reset();
 }
 
 if(buffer_exists(global.gpu_pathfind_buff)){
 	buffer_delete(global.gpu_pathfind_buff);
 }
-global.gpu_pathfind_buff = gpu_pathfind_z(_i,_ii,GRID_W,GRID_H,_func,100,true);
 
+_i = floor(median(0,_i,GRID_W-1));
+_ii = floor(median(0,_ii,GRID_H-1));
+global.gpu_pathfind_buff = gpu_pathfind_z(_i,_ii,global.map_z[_i][_ii],GRID_W,GRID_H,_func,100,true);
 
 if(mouse_check_button_pressed(mb_right)){
 	mouse_x_prev = mouse_x;

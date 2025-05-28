@@ -3,14 +3,14 @@
 function create_random_map_z(){
 	for(var i = 0; i < GRID_W; i++){
 		for(var ii = 0; ii < GRID_H; ii++){
+			global.map_z[i][ii] = 0;
 			if(random(100) < 20){
 				var _x = 16*(i mod GRID_W) - 16*ii;
 				var _y = 8*(i mod GRID_W) + 8*ii;
-				var _zz = irandom(10)*choose(0,0,0,1);
+				var _zz = irandom_range(20,31);
 				global.map_z[i][ii] = _zz;
 				var _inst = instance_create_depth(800+_x,_y,-_y,obj_block,{xx: i, yy: ii, zz: _zz, z: _zz*16});
 			} else if(random(100) < 1){
-				global.map_z[i][ii] = 0;
 				var _x = 16*(i mod GRID_W) - 16*ii;
 				var _y = 8*(i mod GRID_W) + 8*ii;
 				var _inst = instance_create_depth(800+_x,_y,-_y,obj_human_z,{xx: i, yy: ii, z: 0, zz: 0});
