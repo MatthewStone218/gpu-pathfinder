@@ -37,6 +37,7 @@
   "resources":[
     {"id":{"name":"ft_text","path":"fonts/ft_text/ft_text.yy",},},
     {"id":{"name":"README(description)","path":"notes/README(description)/README(description).yy",},},
+    {"id":{"name":"obj_block_fake","path":"objects/obj_block_fake/obj_block_fake.yy",},},
     {"id":{"name":"obj_block","path":"objects/obj_block/obj_block.yy",},},
     {"id":{"name":"obj_human_z","path":"objects/obj_human_z/obj_human_z.yy",},},
     {"id":{"name":"obj_human","path":"objects/obj_human/obj_human.yy",},},

@@ -138,10 +138,10 @@ function gpu_pathfind_z_get_buffer_dir(buff,xx,yy,zz,width){
 		var b = buffer_peek(buff, ((yy * width + xx) * 4 + 2)*4, buffer_u32);
 		var a = buffer_peek(buff, ((yy * width + xx) * 4 + 3)*4, buffer_u32);
 
-		var _up = (r >> zz) & 0x1;
-		var _down = (g >> zz) & 0x1;
-		var _left = (b >> zz) & 0x1;
-		var _right = (a >> zz) & 0x1;
+		var _up = ((r >> zz) << 31) & 0x1;
+		var _down = ((g >> zz) << 31) & 0x1;
+		var _left = ((b >> zz) << 31) & 0x1;
+		var _right = ((a >> zz) << 31) & 0x1;
 
 		var _x_dir = 0;
 		var _y_dir = 0;

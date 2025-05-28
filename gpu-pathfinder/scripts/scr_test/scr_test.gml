@@ -6,11 +6,11 @@ function create_random_map(){
 			if(random(100) < 20){
 				var _x = 16*(i mod GRID_W) - 16*ii;
 				var _y = 8*(i mod GRID_W) + 8*ii;
-				var _inst = instance_create_depth(800+_x,_y,-_y,obj_block,{xx: i, yy: ii});
+				var _inst = instance_create_depth(800+_x,_y,-_y,obj_block,{xx: i, yy: ii, z: 0, zz: 0});
 			} else if(random(100) < 1){
 				var _x = 16*(i mod GRID_W) - 16*ii;
 				var _y = 8*(i mod GRID_W) + 8*ii;
-				var _inst = instance_create_depth(800+_x,_y,-_y,obj_human,{xx: i, yy: ii});
+				var _inst = instance_create_depth(800+_x,_y,-_y,obj_human,{xx: i, yy: ii, z: 0, zz: 0});
 			}
 		}
 	}

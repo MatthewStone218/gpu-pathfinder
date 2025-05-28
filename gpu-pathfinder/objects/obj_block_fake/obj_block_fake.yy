@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_block",
+  "%Name":"obj_block_fake",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_block",
+  "name":"obj_block_fake",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",

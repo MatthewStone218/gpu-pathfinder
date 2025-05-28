@@ -14,11 +14,11 @@ void main()
 	} else {
 		vec4 baseColor = texture2D( gm_BaseTexture, v_vTexcoord );
 		
-	    vec4 height_center = texture2D( u_texture_obstacle, v_vTexcoord ).r;
-		vec4 height_up = texture2D( u_texture_obstacle, vec2(v_vTexcoord.x, v_vTexcoord.y - u_texel.y) ).r;
-		vec4 height_down = texture2D( u_texture_obstacle, vec2(v_vTexcoord.x, v_vTexcoord.y + u_texel.y) ).r;
-		vec4 height_left = texture2D( u_texture_obstacle, vec2(v_vTexcoord.x - u_texel.x, v_vTexcoord.y) ).r;
-		vec4 height_right = texture2D( u_texture_obstacle, vec2(v_vTexcoord.x + u_texel.x, v_vTexcoord.y) ).r;
+	    float height_center = texture2D( u_texture_obstacle, v_vTexcoord ).r;
+		float height_up = texture2D( u_texture_obstacle, vec2(v_vTexcoord.x, v_vTexcoord.y - u_texel.y) ).r;
+		float height_down = texture2D( u_texture_obstacle, vec2(v_vTexcoord.x, v_vTexcoord.y + u_texel.y) ).r;
+		float height_left = texture2D( u_texture_obstacle, vec2(v_vTexcoord.x - u_texel.x, v_vTexcoord.y) ).r;
+		float height_right = texture2D( u_texture_obstacle, vec2(v_vTexcoord.x + u_texel.x, v_vTexcoord.y) ).r;
 		
 		vec4 upColor = texture2D( gm_BaseTexture, vec2(v_vTexcoord.x, v_vTexcoord.y - u_texel.y) );
 		vec4 downColor = texture2D( gm_BaseTexture, vec2(v_vTexcoord.x, v_vTexcoord.y + u_texel.y) );
