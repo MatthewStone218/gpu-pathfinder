@@ -72,3 +72,61 @@ function gpu_pathfind_get_buffer_dir(buff,xx,yy,width){
 	}
 	return [0,0];
 }
+
+function gpu_pathfind_z(_i,_ii,width,height,func_draw,range = 100,test = false){
+	
+	var gpu_pathfind_surf = surface_create(width,height,surface_rgba32float);
+	var _surf = surface_create(width,height,surface_rgba32float);
+	var _surf_block = surface_create(width,height);
+	
+	surface_set_target(_surf_block);
+	draw_clear_alpha(c_black,0);
+	
+	func_draw();
+	
+	surface_reset_target();
+	
+	surface_copy(_surf,0,0,_surf_block);
+	surface_set_target(_surf_block);
+	shader_set(shd_gpu_pathfind_obstacle);
+	draw_surface(_surf,0,0);
+	shader_reset();
+	surface_reset_target();
+	
+	surface_set_target(gpu_pathfind_surf);
+	draw_clear_alpha(c_black,0);
+	
+	draw_sprite(spr_white_dot,0,_i,_ii);
+	
+	shader_set(shd_gpu_pathfind_z);
+	
+	var _texture = surface_get_texture(_surf);
+	shader_set_uniform_f(shader_get_uniform(shd_gpu_pathfind_z,"u_texel"),texture_get_texel_width(_texture),texture_get_texel_height(_texture));
+	texture_set_stage(shader_get_sampler_index(shd_gpu_pathfind_z,"u_texture_obstacle"),surface_get_texture(_surf_block));
+	gpu_set_blendenable(false);
+	
+	for(var i = 0; i < range; i++){
+		shader_set_uniform_i(shader_get_uniform(shd_gpu_pathfind_z,"u_passthrough"),1);
+		surface_copy(_surf,0,0,gpu_pathfind_surf);
+		shader_set_uniform_i(shader_get_uniform(shd_gpu_pathfind_z,"u_passthrough"),0);
+		draw_surface(_surf,0,0);
+	}
+	shader_reset();
+	gpu_set_blendenable(true);
+	
+	draw_sprite(spr_white_dot,0,_i,_ii);
+	
+	surface_reset_target();
+	
+	surface_free(_surf);
+	surface_free(_surf_block);
+	if(test){
+		global.gpu_pathfind_surf = gpu_pathfind_surf;
+	} else {
+		surface_free(gpu_pathfind_surf);
+	}
+	
+	var _buff = buffer_create(width*height*4,buffer_fast,1);
+	buffer_get_surface(_buff,gpu_pathfind_surf,0);
+	return _buff;
+}
