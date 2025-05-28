@@ -10,7 +10,7 @@ var _ii = (_y/8 - (_x-800)/16) / 2;
 var _func = function(){
 	with(obj_block){
 		shader_set_uniform_f(shader_get_uniform(shd_gpu_pathfind_f32,"u_f32"),z/31);
-		draw_sprite_ext(spr_white_dot,0,xx,yy,);
+		//draw_sprite_ext(spr_white_dot,0,xx,yy,);
 	}
 }
 
