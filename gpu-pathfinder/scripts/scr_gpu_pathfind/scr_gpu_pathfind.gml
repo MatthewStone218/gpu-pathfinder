@@ -143,7 +143,8 @@ function gpu_pathfind_get_buffer_dir(buff,xx,yy,zz,width){
 		var _left = (b >> zz) & 0x1;
 		var _right = (a >> zz) & 0x1;
 
-		var _x_dir, _y_dir;
+		var _x_dir = 0;
+		var _y_dir = 0;
 
 		if(_up){
 			_y_dir = -1;
