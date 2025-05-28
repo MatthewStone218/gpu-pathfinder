@@ -131,7 +131,7 @@ function gpu_pathfind_z(_i,_ii,width,height,func_draw,range = 100,test = false){
 	return _buff;
 }
 
-function gpu_pathfind_get_buffer_dir(buff,xx,yy,zz,width){
+function gpu_pathfind_z_get_buffer_dir(buff,xx,yy,zz,width){
 	if(buffer_exists(buff)){
 		var r = buffer_peek(buff, ((yy * width + xx) * 4)*4, buffer_u32);
 		var g = buffer_peek(buff, ((yy * width + xx) * 4 + 1)*4, buffer_u32);
