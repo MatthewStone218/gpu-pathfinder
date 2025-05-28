@@ -45,6 +45,7 @@
     {"id":{"name":"rm_test","path":"rooms/rm_test/rm_test.yy",},},
     {"id":{"name":"scr_gpu_pathfind","path":"scripts/scr_gpu_pathfind/scr_gpu_pathfind.yy",},},
     {"id":{"name":"scr_test","path":"scripts/scr_test/scr_test.yy",},},
+    {"id":{"name":"shd_gpu_pathfind_f32","path":"shaders/shd_gpu_pathfind_f32/shd_gpu_pathfind_f32.yy",},},
     {"id":{"name":"shd_gpu_pathfind_obstacle","path":"shaders/shd_gpu_pathfind_obstacle/shd_gpu_pathfind_obstacle.yy",},},
     {"id":{"name":"shd_gpu_pathfind_z","path":"shaders/shd_gpu_pathfind_z/shd_gpu_pathfind_z.yy",},},
     {"id":{"name":"shd_gpu_pathfind","path":"shaders/shd_gpu_pathfind/shd_gpu_pathfind.yy",},},

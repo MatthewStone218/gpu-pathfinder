@@ -8,9 +8,12 @@ var _i = ((_x-800)/16 + _y/8) / 2;
 var _ii = (_y/8 - (_x-800)/16) / 2;
 
 var _func = function(){
+	shader_set(shd_gpu_pathfind_f32);
 	with(obj_block){
-		draw_sprite_ext(spr_white_dot,0,xx,yy,1,1,0,make_color_rgb(z*255/32,z*255/32,z*255/32),1);
+		shader_set_uniform_f(shd_gpu_pathfind_f32,z/31);
+		draw_sprite(spr_white_dot,0,xx,yy);
 	}
+	shader_reset();
 }
 
 if(buffer_exists(global.gpu_pathfind_buff)){
